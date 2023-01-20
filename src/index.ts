@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-const app = express();
+export const app = express();
 import dotenv from "dotenv";
 dotenv.config();
 import bodyParser from 'body-parser';
@@ -43,3 +43,5 @@ client.connect()
 
 const port = process.env.PORT || 5000
 app.listen(port, () => console.log(`server started to port ${port} ...`))
+
+

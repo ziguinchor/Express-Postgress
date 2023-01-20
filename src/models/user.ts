@@ -15,7 +15,7 @@ export class User {
 
     }
 
-    async  createUser(user: any) {
+    async createUser(user: any) {
         let { firstName, lastName, email, password } = user
     //    const result: QueryResult =  client.query(`INSERT INTO users(firstName,lastName,email,password) VALUES($1,$2,$3,$4)`,
     //    [firstName,lastName,email,password])
