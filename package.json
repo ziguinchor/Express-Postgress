@@ -8,6 +8,7 @@
     "start": "nodemon ./src/index.ts",
     "build": "npx tsc",
     "db-up": "db-migrate up",
+    "db-migrate up": "db-migrate up",
     "db-down": "db-migrate down"
   },
   "keywords": [],
