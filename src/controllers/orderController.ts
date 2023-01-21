@@ -6,14 +6,11 @@ const order = new Order();
 
 // create order
 export const createOrder = async (req: any, res: Response) => {
-  let productId = parseInt(req.params.productId);
+  let productId = parseInt(req.body.productId);
+  let quantity = parseInt(req.body.quantity);
   let userId = parseInt(req.auth.id);
 
-  let orderCreated = await order.createOrder(
-    req.body.quantity,
-    productId,
-    userId
-  );
+  let orderCreated = await order.createOrder(quantity, productId, userId);
   res.json(orderCreated);
 };
 
