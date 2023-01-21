@@ -1,7 +1,6 @@
 /* Replace with your SQL commands */
 
 CREATE TABLE orders(
-
     id serial primary key,
     quantity decimal(9),
     id_product integer,

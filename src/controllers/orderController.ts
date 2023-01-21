@@ -37,7 +37,5 @@ export const deleteOrder = async (req: Request, res: Response) => {
 // methode pour recuperer tous les ordres
 export const getAllOrders = async (req: Request, res: Response) => {
   const orders = await order.getOrders();
-  // @ts-ignore
-  delete orders.password;
   res.json(orders);
 };
