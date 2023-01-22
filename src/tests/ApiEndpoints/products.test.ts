@@ -5,7 +5,7 @@ import dotenv, { config } from "dotenv";
 dotenv.config();
 import jwt from "jsonwebtoken";
 // import app
-import { app } from "../../index";
+import { app, server } from "../../index";
 import { Product } from "../../models/product";
 
 const request = supertest(app);
@@ -20,9 +20,12 @@ type ProductType = {
 const token = jwt.sign("1", process.env.JWT as string);
 let productId: number;
 
-let server;
-
 describe("Product Endpoint test", () => {
+  afterAll(() => {
+    server.close();
+    client.end();
+  });
+
   const testProduct: ProductType = {
     name: "test product",
     price: 10,

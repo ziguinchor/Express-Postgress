@@ -1,7 +1,8 @@
 import supertest from "supertest";
+import { client } from "../../config/database";
 
 // import app
-import { app } from "../../index";
+import { app, server } from "../../index";
 
 const request = supertest(app);
 
@@ -13,7 +14,12 @@ type User = {
   password: string;
 };
 
-describe("Users Endpoint test", async () => {
+describe("Users Endpoint test", () => {
+  afterAll(() => {
+    server.close();
+    client.end();
+  });
+
   let token: string;
   let userId: number;
 

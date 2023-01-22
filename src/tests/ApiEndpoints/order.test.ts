@@ -4,7 +4,7 @@ import dotenv, { config } from "dotenv";
 dotenv.config();
 import jwt from "jsonwebtoken";
 // import app
-import { app } from "../../index";
+import { app, server } from "../../index";
 import { Order } from "../../models/order";
 
 const request = supertest(app);
@@ -29,6 +29,10 @@ type User = {
 };
 
 describe("Orders Endpoint test", () => {
+  afterAll(() => {
+    server.close();
+    client.end();
+  });
   let token: string;
   let userId: number;
 

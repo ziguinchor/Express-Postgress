@@ -36,6 +36,8 @@ client
 // server
 
 const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(`server started to port ${port} ...`));
+export const server = app.listen(port, () =>
+  console.log(`server started to port ${port} ...`)
+);
 
 exports = app;
