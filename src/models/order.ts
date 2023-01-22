@@ -4,7 +4,7 @@ export class Order {
   async createOrder(quantity: any, id_product: number, id_user: number) {
     try {
       // const sql = "INSERT INTO orders (id_user) VALUES($1, $2) RETURNING *"
-      console.log(id_user);
+
       const order = (
         await client.query(
           `INSERT INTO orders (id_user) VALUES($1) RETURNING *`,
@@ -28,7 +28,10 @@ export class Order {
   async update(id: number) {
     try {
       return (
-        await client.query(`UPDATE orders SET status=true WHERE id=$1`, [id])
+        await client.query(
+          `UPDATE orders SET status=true WHERE id=$1 RETURNING *`,
+          [id]
+        )
       ).rows[0];
     } catch (error) {
       console.log(error);

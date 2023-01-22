@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest -runInBand --detectOpenHandles",
+    "test": "jest -runInBand --detectOpenHandles  --forceExit",
     "start": "nodemon ./src/index.ts",
     "build": "npx tsc",
     "db-up": "db-migrate up",

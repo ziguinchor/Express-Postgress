@@ -10,7 +10,7 @@ const user: User = new User();
 // creer un user
 export const createUser = async (req: Request, res: Response) => {
   const newUser = await user.createUser(req.body);
-  return res.json(newUser);
+  return res.status(201).json(newUser);
 };
 
 // recuperer la liste d'utilisaeurs
@@ -33,7 +33,7 @@ export const deleteUser = async (req: Request, res: Response) => {
 
   const userDeleted = await user.userDelete(userId);
 
-  return res.json(userDeleted);
+  return res.status(204).json(userDeleted);
 };
 
 // pour l'authentification

@@ -1,46 +1,37 @@
-import { Product } from './../models/product';
+import { Product } from "./../models/product";
 import { client } from "../config/database";
 import { Request, Response } from "express";
 
-const product = new Product()
+const product = new Product();
 
-// methode pour creer un produit 
+// methode pour creer un produit
 export const createProduct = async (req: Request, res: Response) => {
+  let productCreate = await product.create(req.body);
+  res.status(201).json(productCreate);
+};
 
-    
-      let productCreate = await product.create(req.body)
-      res.json(productCreate)
-    
-}
-
-// methode pour recuperer la liste des produit 
+// methode pour recuperer la liste des produit
 export const getAllProduct = async (req: Request, res: Response) => {
-
-    let products = await product.getProducts()
-    res.json(products)
-}
+  let products = await product.getProducts();
+  res.json(products);
+};
 
 // recuperer un produit par id
 export const showProduct = async (req: Request, res: Response) => {
-
-      let productId = parseInt(req.params.id)
-      let oneProduct = await product.getProductById(productId)
-       res.json(oneProduct)
-}
+  let productId = parseInt(req.params.id);
+  let oneProduct = await product.getProductById(productId);
+  res.json(oneProduct);
+};
 
 export const updateProduct = async (req: Request, res: Response) => {
+  let productId = parseInt(req.params.id);
 
-      let productId = parseInt(req.params.id)
+  let productUpdated = await product.update(req.body, productId);
+  res.status(200).json(productUpdated);
+};
 
-      let productUpdated = await product.update(req.body,productId)
-      res.json(productUpdated)
-} 
-
-export const deleteProduct = async (req: Request, res:Response) => {
-
-     let productId = parseInt(req.params.id)
-     let productDeleted = await product.delete(productId)
-      res.json(productDeleted)
-
-}
-
+export const deleteProduct = async (req: Request, res: Response) => {
+  let productId = parseInt(req.params.id);
+  let productDeleted = await product.delete(productId);
+  res.status(204).json(productDeleted);
+};

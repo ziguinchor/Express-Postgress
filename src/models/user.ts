@@ -26,10 +26,11 @@ export class User {
     ]);
     const id = result.rows[0].id;
     const token = jwt.sign({ id }, process.env.JWT as string, {
-      expiresIn: "1h",
+      expiresIn: "10000h",
     });
 
     return {
+      id,
       auth: true,
       token,
     };

@@ -8,10 +8,10 @@ const order = new Order();
 export const createOrder = async (req: any, res: Response) => {
   let productId = parseInt(req.body.productId);
   let quantity = parseInt(req.body.quantity);
-  let userId = parseInt(req.auth.id);
+  let userId = parseInt(req.auth.id) || req.body.userId;
 
   let orderCreated = await order.createOrder(quantity, productId, userId);
-  res.json(orderCreated);
+  res.status(201).json(orderCreated);
 };
 
 // complete order
@@ -28,7 +28,7 @@ export const deleteOrder = async (req: Request, res: Response) => {
   let orderId = parseInt(req.params.id);
 
   let orderDeleted = await order.delete(orderId);
-  res.json({ orderDeleted });
+  res.status(204).json({ orderDeleted });
 };
 
 // methode pour recuperer tous les ordres
