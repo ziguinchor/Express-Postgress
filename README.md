@@ -9,7 +9,9 @@ Connect to postgresql server and create a database called "mydatabase".
 
 psql
 postgres=# create database mydatabase;
+
 postgres=# create user postgres with encrypted password 'admin';
+
 postgres=# grant all privileges on mydatabase mydb to postgres;
 
 then open .env file and edit the postgresql server login informations.
