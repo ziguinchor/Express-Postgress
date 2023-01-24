@@ -9,9 +9,9 @@ can be changed in config/database.ts
 
 
 # Package installation instructions.
-``````
+run the following command to install global dependencies.
 
-# Package installation instructions.
+```npm i -g nodemon db-migrate tsc```
 
 # Set up the dependencies
 
