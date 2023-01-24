@@ -7,8 +7,14 @@ can be changed in .env file
 can be changed in config/database.ts
 
 
-# Package installation instructions.
-run
+
+# Package installation instructions.
+``````
+
+# Package installation instructions.
+
+# Set up the dependencies
+
 `npm i` to install the dependencies
 
 # Database Set up 
