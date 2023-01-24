@@ -1,5 +1,12 @@
 # My Store
 
+# Default application PORT : 3000
+can be changed in .env file
+
+# Default Database PORT : 5432
+can be changed in config/database.ts
+
+
 # Package installation instructions.
 run
 `npm i` to install the dependencies
