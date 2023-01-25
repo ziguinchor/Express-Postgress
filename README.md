@@ -1,6 +1,7 @@
 # My Store
 
 # Default application PORT : 3000
+<<<<<<< HEAD
 
 can be changed in .env file
 
@@ -13,11 +14,25 @@ can be changed in config/database.ts
 run the following command to install global dependencies.
 
 `npm i -g nodemon db-migrate tsc`
+=======
+can be changed in .env file
+
+# Default Database PORT : 5432
+can be changed in config/database.ts
+
+
+
+# Package installation instructions.
+run the following command to install global dependencies.
+
+```npm i -g nodemon db-migrate tsc```
+>>>>>>> refs/remotes/origin/main
 
 # Set up the dependencies
 
 `npm i` to install the dependencies
 
+<<<<<<< HEAD
 # Database Set up
 
 Connect to postgresql server and create a database called "mydatabase".
@@ -34,6 +49,24 @@ in the same file you can set port number and other environment variable.
 
 after that from your terminal run to
 `npm run db-migrate up`
+=======
+# Database Set up 
+Connect to postgresql server and create a database called "mydatabase".
+
+psql
+postgres=# create database mydatabase;
+
+postgres=# create user postgres with encrypted password 'admin';
+
+postgres=# grant all privileges on mydatabase mydb to postgres;
+
+then open .env file and edit the postgresql server login informations.
+in the same file you can set port number and other environment variable.
+
+after that from your terminal run to
+```npm run db-migrate up```
+
+>>>>>>> refs/remotes/origin/main
 
 # Database schema with column name and type.
 
@@ -63,6 +96,7 @@ foreign key(id_user) references users(id)
 );
 
 CREATE TABLE order_products (
+<<<<<<< HEAD
 id SERIAL PRIMARY KEY,
 id_order INT NOT NULL,
 id_product INT NOT NULL,
@@ -82,7 +116,28 @@ ON UPDATE CASCADE
 # Run migration
 
 `npm run db-up`
+=======
+    id SERIAL PRIMARY KEY,
+    id_order INT NOT NULL,
+    id_product INT NOT NULL,
+    quantity INT NOT NULL,
+    CONSTRAINT fk_orders
+        FOREIGN KEY (id_order)
+            REFERENCES orders(id)
+            ON DELETE CASCADE
+            ON UPDATE CASCADE,
+    CONSTRAINT fk_products
+        FOREIGN KEY (id_product)
+            REFERENCES products(id)
+            ON DELETE CASCADE
+            ON UPDATE CASCADE
+);
+>>>>>>> refs/remotes/origin/main
 
 # Endpoints
 
 API Documentation : https://documenter.getpostman.com/view/25165348/2s8ZDYWgw2
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/main
