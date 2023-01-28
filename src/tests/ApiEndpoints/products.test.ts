@@ -42,6 +42,7 @@ describe("Product Endpoint test", () => {
     await request
       .post("/api/products/create")
       .send(testProduct)
+      .set("Authorization", `Bearer ${token}`)
       .expect((res) => {
         productId = res.body.id;
         expect(res.status).toBe(201);

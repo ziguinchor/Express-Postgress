@@ -13,6 +13,6 @@ import {
 router.post("/", [requireSignin], createOrder);
 router.patch("/completed/:id", [requireSignin], complteOrder);
 router.delete("/delete/:id", [requireSignin], deleteOrder);
-router.get("/all", getAllOrders);
+router.get("/all", [requireSignin], getAllOrders);
 
 export const ordersRouter: Router = router;
