@@ -88,6 +88,8 @@ describe("Order Model", () => {
       expect(quantity).toBe(testOrder.quantity);
     }
     await orderStore.delete(createdOrder.id);
+    // @ts-ignore
+    userStore.userDelete(createdUser.id);
   });
 
   it("should return a list of all orders", async () => {
@@ -124,8 +126,7 @@ describe("Order Model", () => {
     await orderStore.delete(id);
     const orderById = await orderStore.getOrderById(id);
     expect(orderById).toBe(undefined);
+    // @ts-ignore
+    userStore.userDelete(createdUser.id);
   });
 });
-
-// @ts-ignore
-userStore.userDelete(1);
