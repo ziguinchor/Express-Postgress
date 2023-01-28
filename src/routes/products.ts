@@ -11,8 +11,8 @@ import {
 } from "./../controllers/productController";
 
 router.post("/create", [requireSignin], createProduct);
-router.get("/all", [requireSignin], getAllProduct);
-router.get("/:id", [requireSignin], showProduct);
+router.get("/all", getAllProduct);
+router.get("/:id", showProduct);
 router.put("/update/:id", [requireSignin], updateProduct);
 router.delete("/delete/:id", [requireSignin], deleteProduct);
 
