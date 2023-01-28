@@ -30,6 +30,8 @@ export class User {
     });
 
     return {
+      firstName,
+      lastName,
       id,
       auth: true,
       token,

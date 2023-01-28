@@ -12,7 +12,6 @@ export class Order {
         )
       ).rows[0];
       const orderId: number = order.id;
-      console.log(orderId);
 
       return (
         await client.query(
@@ -42,6 +41,16 @@ export class Order {
     try {
       return (await client.query(`DELETE FROM orders WHERE id=$1`, [id]))
         .rows[0];
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async getOrderById(id: number) {
+    try {
+      return (
+        await client.query(`SELECT * FROM orders WHERE id = $1  LIMIT 1`, [id])
+      ).rows[0];
     } catch (error) {
       console.log(error);
     }

@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const jwtSecret: string = process.env.JWT_SECRET as string;
-console.log(jwtSecret);
+const jwtToken: string = process.env.JWT_TOKEN as string;
 
 export const requireSignin = expressjwt({
   algorithms: ["HS256"],
@@ -14,5 +14,5 @@ export const requireSignin = expressjwt({
 });
 
 export const generateToken: Function = (id: string): string => {
-  return jwt.sign(id, "123456", { expiresIn: "1h" });
+  return jwt.sign(id, jwtToken, { expiresIn: "1h" });
 };
